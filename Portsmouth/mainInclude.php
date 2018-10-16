@@ -27,9 +27,6 @@ function WriteFooter()
     echo "</body>\n</html>\n";
 }
 
-
-
-
 function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
 {
 	echo"<img src= \"$FileName\" alt = \"$Alt\" width = 
