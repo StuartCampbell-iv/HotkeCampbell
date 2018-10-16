@@ -1,6 +1,6 @@
 <?php
 
-
+echo "<h1> SLUT! </h1>";
 echo "<p>Hello World</p>";
 /* 
  * To change this license header, choose License Headers in Project Properties.
