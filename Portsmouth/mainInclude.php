@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 function WriteHeader()
 {
     echo <<<HTML
@@ -27,9 +26,6 @@ function WriteFooter()
     echo "</body>\n</html>\n";
 }
 
-
-
-=======
 function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
 {
 	echo"<img src= \"$FileName\" alt = \"$Alt\" width = 
@@ -47,5 +43,4 @@ function DisplayButton($BName,$Text,$FileName = "", $Alt = "")
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
->>>>>>> 64924e84424ac0fca0494229abbfaa2e51bd89de
 ?>
