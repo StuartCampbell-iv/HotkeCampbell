@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 function WriteHeader()
 {
     echo <<<HTML
@@ -30,6 +29,7 @@ function WriteFooter()
 
 
 =======
+
 function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
 {
 	echo"<img src= \"$FileName\" alt = \"$Alt\" width = 
@@ -48,4 +48,5 @@ function DisplayButton($BName,$Text,$FileName = "", $Alt = "")
  * and open the template in the editor.
  */
 >>>>>>> 64924e84424ac0fca0494229abbfaa2e51bd89de
+
 ?>
