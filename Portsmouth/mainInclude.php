@@ -27,11 +27,6 @@ function WriteFooter()
     echo "</body>\n</html>\n";
 }
 
-function WriteFooter2()
-{
-    echo "<h2>Footer</h2>";
-    echo "</body>\n</html>\n";
-}
 
 function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
 {
