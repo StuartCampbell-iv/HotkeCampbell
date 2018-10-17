@@ -6,6 +6,16 @@ require_once 'mainInclude.php';
 WriteHeader();
 
 
+    EventsPage();
+}
+else if (isset($_POST['f_ContactUsPage']))
+{
+    ContactUsPage();
+}
+else
+{
+    HomePage();
+}
 
 WriteFooter();
 
