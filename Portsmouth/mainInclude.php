@@ -23,8 +23,14 @@ HTML;
 
 function WriteFooter()
 {
-    echo "<h2>Footer</h2>";
-    echo "</body>\n</html>\n";
+    echo <<<HTML
+    
+    <div class="jumbotron">
+        <h2>Footer</h2>
+    </div>
+    </body>\n</html>
+    
+HTML;
 }
 
 function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
