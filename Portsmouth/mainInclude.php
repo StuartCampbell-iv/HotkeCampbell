@@ -9,15 +9,18 @@ function WriteHeader()
         <head>
                 <meta charset = \"UTF-8\">
                 <title>Title</title>
+                <link rel="stylesheet" href="bootstrap/css/bootstrap.css/">
         </head>
         <body>     
 
         <h1 class="jumbotron">Portmouth Tavern<div class="form-control">
-        <button>Home</button>
-        <button>Menu</button>
-        <button>Events</button>
-        <button>About Us</button>
+    <form>
+        <input type="button" class=".btn-primary" value="Home">
+        <input type="button" value="Menu">
+        <input type="button" value="Events">
+        <input type="button" value="About Us">
         </div></h1>
+    <form>
 HTML;
 }
 
