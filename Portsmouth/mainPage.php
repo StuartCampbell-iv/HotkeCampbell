@@ -1,5 +1,5 @@
 <?php
-require_once("mainInclude");
+require_once("mainInclude.php");
 
 
 WriteHeaders();
