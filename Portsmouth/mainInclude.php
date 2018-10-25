@@ -13,8 +13,13 @@ function WriteHeader()
         </head>
         <body>     
 
+<<<<<<< HEAD
     <img src = "images/edit3c.jpg" alt = "image error" width = 100% height = 320>
     <form>
+=======
+        <h1 class="jumbotron">Portmouth Tavern<div class="form-control">
+    <form action = ? method = "post">
+>>>>>>> 3ca71c4135a4de49551192858e617d5e126fa572
         <input type="button" class=".btn-primary" value="Home">
         <input type="button" value="Menu">
         <input type="button" value="Events">
@@ -41,11 +46,12 @@ function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
 function DisplayButton($BName,$Text,$FileName = "", $Alt = "")
 {
 	
-	echo" <button type= submit name =\"$BName\" class =\"$FileName\">\"$Text\"</button>";
+	echo" <button type= submit name =\"$BName\" class =\"$FileNam\">$Text</button>";
 }
 
 function HomePage()
 {
+    
     
 }
 
@@ -63,5 +69,11 @@ function ContactUsPage()
 {
     
 }
+
+
+
+
+
+
 
 ?>
