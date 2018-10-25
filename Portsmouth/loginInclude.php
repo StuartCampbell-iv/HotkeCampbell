@@ -10,13 +10,19 @@ function Login()
             
         <label for="password">Password</label>
         <input type="password" placeholder="Enter Password" name="password"
-            id="password" required>
+            id="password" autocomplete="off" required>
     
-        <button type="submit" name"f_Login" id="login" onclick="validate()">Login</button>
+        <button type="submit" name"f_Login" id="login" onclick="validate()">Login</button>  
+    
     <script src=loginJS.js></script>
 HTML;
         
  
+}
+
+function LoginMain()
+{
+    
 }
 
 
