@@ -14,7 +14,7 @@ function WriteHeader()
         <body>     
 
         <h1 class="jumbotron">Portmouth Tavern<div class="form-control">
-    <form>
+    <form action = ? method = "post">
         <input type="button" class=".btn-primary" value="Home">
         <input type="button" value="Menu">
         <input type="button" value="Events">
@@ -45,11 +45,12 @@ function DisplayImage($FileName,$Alt,$Width = "",$Height = "")
 function DisplayButton($BName,$Text,$FileName = "", $Alt = "")
 {
 	
-	echo" <button type= submit name =\"$BName\" class =\"$FileName\">\"$Text\"</button>";
+	echo" <button type= submit name =\"$BName\" class =\"$FileNam\">$Text</button>";
 }
 
 function HomePage()
 {
+    
     
 }
 
@@ -67,5 +68,11 @@ function ContactUsPage()
 {
     
 }
+
+
+
+
+
+
 
 ?>
