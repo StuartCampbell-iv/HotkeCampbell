@@ -5,22 +5,22 @@ require_once 'mainInclude.php';
 /// Main
 WriteHeader();
 
-if (isset($_POST['f_MenuPage']))
-{
-    MenuPage();
-}
-else if (isset($_POST['f_EventsPage']))
-{
-    EventsPage();
-}
-else if (isset($_POST['f_ContactUsPage']))
-{
-    ContactUsPage();
-}
+if(isset($_POST["f_menu"]))
+    {
+        DisplayMenu();
+    }
+else if(isset($_POST["f_events"]))
+    {
+        DisplayEvents();
+    }
+else if(isset($_POST["f_aboutUs"]))
+    {
+        DisplayAboutUs();
+    }   
 else
-{
-    HomePage();
-}
+    {
+        DisplayMain();
+    }
 
 WriteFooter();
 ?>

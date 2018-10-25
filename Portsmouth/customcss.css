@@ -1,0 +1,40 @@
+.header{
+    position:relative;
+        line-height: 20px;
+    margin-top: 0px;
+    margin-left: px;
+    margin-right:0px;
+}
+
+.headerButtonA{
+
+    position:absolute;
+    top:250px;
+    left:33.5%;    
+}
+
+.headerButtonB{
+    position:absolute;
+    top:250px;
+    left:43.5%;    
+}
+
+.headerButtonC{
+    position:absolute;
+    top:250px;
+    left:53.5%;    
+}
+
+.headerButtonD{
+    position:absolute;
+    top:250px;
+    left:63.5%;    
+}
+
+
+
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
