@@ -13,7 +13,7 @@ function WriteHeader()
         </head>
         <body>     
 
-        <h1 class="jumbotron">Portmouth Tavern<div class="form-control">
+    <img src = "images/edit3c.jpg" alt = "image error" width = 100% height = 320>
     <form>
         <input type="button" class=".btn-primary" value="Home">
         <input type="button" value="Menu">
@@ -27,10 +27,6 @@ HTML;
 function WriteFooter()
 {
     echo <<<HTML
-    
-    <div class="jumbotron">
-        <h2>Footer</h2>
-    </div>
     </body>\n</html>
     
 HTML;
