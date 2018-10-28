@@ -12,7 +12,16 @@ function WriteHeader()
                 <link rel="stylesheet" href="bootstrap/css/bootstrap.css/">
                 <link rel="stylesheet" href="customcss.css/">
         </head>
-        <body>     
+    <style>
+    body  {
+        background-image: url("images/edit9b.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height:100%;
+    }
+    </style>
+    <body>
     <div class = "header">
         <img src = "images/edit3c.jpg" alt = "image error" width = 100% height = 320>
         <form action = ? method = "post">
@@ -29,8 +38,8 @@ function WriteFooter()
 {
     echo <<<HTML
         <div class = "footer">
-            <img src = "images/edit6c.jpg" alt = "image error" width = 100% height = 100>
         </div>
+    <script src = "javascriptFunctions.js"></script>
     </body>\n</html>
     
 HTML;
@@ -57,17 +66,42 @@ function DisplayMain()
 function DisplayMenu()
 {
     $handle = fopen("menuInfo.txt", "r");
+    $content = fgets($handle);
     
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    foodBlock($handle);
-    
+    echo"<div class = \"menuLeft\">";
+        echo"<div class = \"menuGroup\">";
+            //Appetizer
+            foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //Nachos
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //Munchies
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //sides
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //Soups and salads
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //wings
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //wraps
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //burgers
+        foodBlock($handle);
+        echo"</div>";
+    echo"</div><div class = \"menuRight\"><div class = \"menuGroup\">";
+        //sandwiches
+        foodBlock($handle);
+        echo"</div><div class = \"menuGroup\">";
+        //dinner platters
+        foodBlock($handle);
+        echo"</div>";
+    echo"</div>";
     fclose($handle);
 }
 
@@ -93,10 +127,5 @@ function foodBlock($handle){
             echo"<p>" . $content . "</p>";
         } 
 }
-
-
-
-
-
 
 ?>

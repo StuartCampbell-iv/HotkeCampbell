@@ -1,3 +1,4 @@
+*************** Do not delete this line. When adding or deleting an item from the menu, make sure that the number before the category is equal to the number of lines after the category title. Ex. There are 8 lines after soups and salads.
 5
 Appetizers
 Garlic Bread 4 w/cheese 5.5
