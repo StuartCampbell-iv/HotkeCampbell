@@ -1,7 +1,17 @@
 <?php
 
+
+
+
 require_once("loginInclude.php");
 
-Login();
+if(isset($_POST['f_Login']))
+    LoginMain();
+if(isset($_POST['f_Password']))
+    ChangePassword();
+else if (isset($_POST['f_MainMenu']))
+    Login();
+else
+    Login();
 
 ?>

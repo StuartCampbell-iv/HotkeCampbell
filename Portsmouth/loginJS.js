@@ -1,32 +1,39 @@
+
+
+var correctpassword;
+
 var attempt = 3;
 
 function validate()
 {
-    var username = document.getElementById("username");
+    
     var password = document.getElementById("password");
     
-    if(username.value === "PortsmouthTavern" && password.value === "default")
+    if(password.value === correctpassword)
     {
-        alert("Login successful")
-        window.location = "login.php";
+        alert("Login Successful");
+        
     }
+ 
     
-    else
-    {
-        attempt--;
-        alert("You have" +attempt+ "left");
-    
-    
-    if(attmept === 0)
-    {
-        username.disabled = true;
-        password.disabled = true;
-        document.getElementById("login").disabled = true;
-    }
-    }
 }
+    
 
-function savePassword()
+
+function newPassword()
 {
+    var currentpassword = document.getElementById("currentpassword");
+    var newpassword = document.getElementById("newpassword");
+    var repassword = document.getElementById("repassword");
+    var changedpassword;
     
+    if (newpassword.value === repassword && currentpassword === correctpassword)
+    {
+        alert("Password Changed")
+        changedpassword = repassword;
+        $.post('loginInclude.php', changedpassword);
+    }
+  
 }
+    
+    
