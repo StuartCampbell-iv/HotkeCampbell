@@ -5,15 +5,15 @@ require_once 'mainInclude.php';
 /// Main
 WriteHeader();
 
-if(isset($_POST["f_menu"]))
+if(isset($_POST['f_menu']))
     {
         DisplayMenu();
     }
-else if(isset($_POST["f_events"]))
+else if(isset($_POST['f_events']))
     {
         DisplayEvents();
     }
-else if(isset($_POST["f_aboutUs"]))
+else if(isset($_POST['f_aboutUs']))
     {
         DisplayAboutUs();
     }   

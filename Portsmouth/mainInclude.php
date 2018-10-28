@@ -16,11 +16,11 @@ function WriteHeader()
     <div class = "header">
         <img src = "images/edit3c.jpg" alt = "image error" width = 100% height = 320>
         <form action = ? method = "post">
-            <input type="button" name = "f_home" class = "headerButtonA" value="Home">
-            <input type="button" name = "f_menu" class = "headerButtonB" value="Menu">
-            <input type="button" name = "f_events" class = "headerButtonC" value="Events">
-            <input type="button" name = "f_aboutUs"class = "headerButtonD" value="About Us">
-        <form>
+            <input type="submit" name = "f_home" class = "headerButtonA" value="Home">
+            <input type="submit" name = "f_menu" class = "headerButtonB" value="Menu">
+            <input type="submit" name = "f_events" class = "headerButtonC" value="Events">
+            <input type="submit" name = "f_aboutUs"class = "headerButtonD" value="About Us">
+        </form>
     </div>
 HTML;
 }
@@ -50,13 +50,25 @@ function DisplayButton($BName,$Text,$FileName = "", $Alt = "")
 
 function DisplayMain()
 {
-    
+    echo"<h1>MAIN</h1>";
     
 }
 
 function DisplayMenu()
 {
+    $handle = fopen("menuInfo.txt", "r");
     
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    foodBlock($handle);
+    
+    fclose($handle);
 }
 
 function DisplayEvents()
@@ -69,6 +81,18 @@ function DisplayContactUs()
     
 }
 
+function foodBlock($handle){
+    
+    $num = (int)fgets($handle);
+    
+    $content = fgets($handle);
+    echo"<h1>" . $content . "</h1>";
+    for($i = 0; $i < $num; $i++)
+        {
+            $content = fgets($handle);
+            echo"<p>" . $content . "</p>";
+        } 
+}
 
 
 
