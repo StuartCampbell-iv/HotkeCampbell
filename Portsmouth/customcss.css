@@ -1,9 +1,43 @@
+table{
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 1em;
+}
+
+tr{
+    padding: 1%;
+    margin: 1%; 
+}
+
+th{
+    border: 3px solid black;
+    border-radius: 8px;
+    opacity: 0.8;
+    background:white;
+    padding: 1%;
+    margin: 2%;
+    width: 30em;
+}
+
+td{
+    border: 3px solid black;
+    border-radius: 8px;
+    opacity: 0.8;
+    background:white;
+    padding: 1%;
+    padding-bottom: 8em;
+    margin: 2%;
+    width: 30em;
+}
+
 .header{
     position:relative;
     line-height: 20px;
     margin-top: 0px;
     margin-left: px;
     margin-right:0px;
+    width: 100%;
 }
 
 .headerButtonA{
@@ -54,16 +88,16 @@
     top:320px;
     left:5%;
     float:left;
-    width:45%;
-    padding-left:5%;
+    width:48%;
+    padding-left:6%;
 }
 
 .menuRight{
     top:320px;
-    left:55%;
+    left:52%;
     position:absolute;
     float:right;
-    width:40%;
+    width:48%;
     padding-right: 5%;
 }
 .menuText{
