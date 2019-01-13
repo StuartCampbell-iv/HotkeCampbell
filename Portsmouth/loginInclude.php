@@ -3,23 +3,20 @@
 function Login()
 {
     $File = fopen("loginInfo.txt", "r");
-    $Password = fgets($File);
+    $CorrectPassword = fgets($File);
     
     
-   echo <<<HTML
-    <form action=? method="post">          
-        <label for="password">Password</label>
-        <input type="password" placeholder="Enter Password" name="password"
-            id="password" required>
-    
-        <input type="submit" name="f_Login" value="Login" id="login" onclick="validate()"/> 
-    
-    <script type="text/javascript">var correctpassword = "<?php echo $Password; ?>";</script>
-    <script type="text/javascript" src=loginJS.js></script>
-    </form>
-HTML;
-        
- 
+   echo"<form action=? method=\"post\">"; 
+   
+   DisplayTextBox("test", "", "", "f_Password", "", "Enter Password", "required");
+  
+   
+    $Password = isset($_POST['f_Password']);
+   
+   if($Password == $CorrectPassword)
+   {
+        DisplayButton("f_Login","","Login");
+   }
 }
 
 function LoginMain()
@@ -32,6 +29,8 @@ function LoginMain()
     
     </form>
 HTML;
+    
+   
 }
 
 function ChangeCalendar()
@@ -88,8 +87,17 @@ function ChangeMenu()
 HTML;
    
 }
+ function DisplayButton($Name,$Size="",$Value="",$Id="",$PlaceHolder="",$Required="")
+ {
+    echo"<input type=submit name=\"$Name\" size=\"$Size\" value=\"$Value\" id=\"$Id\" "
+            . "placeholder=\"$PlaceHolder\" $Required/>";
+ }
 
-
+ function DisplayTextBox($Text,$Name,$Size="",$Value="",$Id="",$PlaceHolder="",$Required="")
+ {
+     echo"<input type=\"$Text\" name=\"$Name\" size=\"$Size\" value=\"$Value\" id=\"$Id\"
+            placeholder=\"$PlaceHolder\" $Required/>";
+ }
 
 ?>
 

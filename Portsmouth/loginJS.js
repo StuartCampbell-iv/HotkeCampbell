@@ -2,7 +2,6 @@
 
 var correctpassword;
 
-var attempt = 3;
 
 function validate()
 {
@@ -12,7 +11,6 @@ function validate()
     if(password.value === correctpassword)
     {
         alert("Login Successful");
-        
     }
  
     
@@ -29,9 +27,9 @@ function newPassword()
     
     if (newpassword.value === repassword && currentpassword === correctpassword)
     {
-        alert("Password Changed")
-        changedpassword = repassword;
-        $.post('loginInclude.php', changedpassword);
+        alert("Password Changed");
+        //changedpassword = repassword;
+       // $.post('loginInclude.php', changedpassword);
     }
   
 }
