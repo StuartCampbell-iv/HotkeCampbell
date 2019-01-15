@@ -1,17 +1,13 @@
 *************** Do not delete this line. When adding or deleting an item from the menu, make sure that the number before the category is equal to the number of lines after the category title. Ex. There are 8 lines after soups and salads.
-5
+7
 Appetizers
 Garlic Bread 4 w/cheese 5.5
 Breaded Mushrooms 7
 Mozza Sticks 8 
 Cheddar Cheese Balls 7
 Calamari 8 
-1
-Nachos 10
-w/Beef 13 w/Chicken 14
-1
-Munchie Platters
-Sm. 16 Lg. 23 Xl. 30
+Nachos 10 w/Beef 13 w/Chicken 14
+Munchie Platters Sm. 16 Lg. 23 Xl. 30
 5
 Side Orders
 Handcut French Fries Sm. 5 Lg 6.5

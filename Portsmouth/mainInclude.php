@@ -23,8 +23,16 @@ function WriteHeader()
     }
     </style>
     <body>
+    <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <div class = "header">
-        <img src = "images/edit3c.jpg" alt = "image error" width = 100% height = 320>
+        <img src = "images/edit3e.jpg" alt = "image error" width = 100% height = 320>
         <form action = ? method = "post">
             <input type="submit" name = "f_home" class = "headerButtonA" value="Home">
             <input type="submit" name = "f_menu" class = "headerButtonB" value="Menu">
@@ -60,8 +68,13 @@ function DisplayButton($BName,$Text,$FileName = "", $Alt = "")
 
 function DisplayMain()
 {
-    echo"<h1>MAIN</h1>";
+    echo <<<HTML
+    <div class="fb-page" data-href="https://www.facebook.com/portstavern" data-tabs="timeline" 
+    data-width="500" data-small-header="false" data-adapt-container-width="true" 
+    data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/portstavern" 
+    class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/portstavern">Portsmouth Tavern</a></blockquote></div>
     
+HTML;
 }
 
 function DisplayMenu()
@@ -71,13 +84,7 @@ function DisplayMenu()
     
     echo"<div class = \"menuLeft\">";
         echo"<div class = \"menuGroup\">";
-            //Appetizer
-            foodBlock($handle);
-        echo"</div><div class = \"menuGroup\">";
-        //Nachos
-        foodBlock($handle);
-        echo"</div><div class = \"menuGroup\">";
-        //Munchies
+        //Appetizer
         foodBlock($handle);
         echo"</div><div class = \"menuGroup\">";
         //sides
@@ -88,14 +95,14 @@ function DisplayMenu()
         echo"</div><div class = \"menuGroup\">";
         //wings
         foodBlock($handle);
-        echo"</div><div class = \"menuGroup\">";
+        echo"</div></div><div class = \"menuRight\"><div class = \"menuGroup\">";
         //wraps
         foodBlock($handle);
         echo"</div><div class = \"menuGroup\">";
         //burgers
         foodBlock($handle);
         echo"</div>";
-    echo"</div><div class = \"menuRight\"><div class = \"menuGroup\">";
+        echo"<div class = \"menuGroup\">";
         //sandwiches
         foodBlock($handle);
         echo"</div><div class = \"menuGroup\">";
@@ -103,22 +110,32 @@ function DisplayMenu()
         foodBlock($handle);
         echo"</div>";
     echo"</div>";
+    
+    echo"<script>
+        var acc = document.getElementsByClassName(\"accordion\");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener(\"click\", function() {
+            this.classList.toggle(\"active\");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + \"px\";
+            } 
+          });
+        }
+        </script>";
     fclose($handle);
 }
 
 function DisplayEvents()
 {
-    echo"
-        
-        <form action = ? method = \"post\">
-        <input type=\"submit\" name = \"f_monthSub\" id = \"add\" value= \"Previous\">
-        <input type=\"submit\" name = \"f_monthAdd\" id = \"sub\"value= \"Next\">
-        <table  border=\"1\"  id=\"calendar\" >
-            <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th>
-                <th>Thursday</th><th>Friday</th><th>Saturday</th>
-            </tr>
-            
-        ";
+    echo"<form action = ? method = \"post\">
+            <div class = \"monthNumber\">";
+    
+            //Add or subtract the html variable held to keep track of the month
             if(isset($_POST['month']))
             {
                 $month_add = $_POST['month'];
@@ -135,8 +152,12 @@ function DisplayEvents()
             else
             {
                 $month_add = 0;
-                echo "<input type = \"number\" name = \"month\" value =\"0\" >" ;
+                echo"   <input type = \"number\" name = \"month\" value =\"0\" >"; 
             }
+            
+            //Previous button 
+            echo"</div>
+                    <input class = \"monthHeaderPrevious\" type=\"submit\" name = \"f_monthSub\" id = \"add\" value= \"Previous\">";
             
             if($month_add >= 0)
             {
@@ -162,6 +183,17 @@ function DisplayEvents()
                 $maxDay->sub($interval);
             }
             
+            // Display month 
+            echo"<div class = \"monthHeader\"> <h1>" .  $backtrack->format('M') . "</h1> </div>";
+            
+            // Next button
+            echo"
+                <input class = \"monthHeaderNext\" type=\"submit\" name = \"f_monthAdd\" id = \"sub\"value= \"Next\">
+                <table  border=\"1\"  id=\"calendar\" >
+                    <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th>
+                        <th>Thursday</th><th>Friday</th><th>Saturday</th>
+                    </tr>";
+            
             $maxDay->add(date_interval_create_from_date_string('1 month'));
             
             $oneDay = date_interval_create_from_date_string('1 days');
@@ -174,8 +206,6 @@ function DisplayEvents()
             {
                 $maxDay->add($oneDay);
             }
-            
-            echo"<h1>" .  $maxDay->format('M') . "</h1>";
             
             $counter = 0;
             $currentDay = $backtrack->format('d');
@@ -203,7 +233,7 @@ function DisplayContactUs()
     
 }
 
-function foodBlock($handle){
+function foodBlock2($handle){
     
     $num = (int)fgets($handle);
     
@@ -214,6 +244,22 @@ function foodBlock($handle){
             $content = fgets($handle);
             echo"<p>" . $content . "</p>";
         } 
+}
+
+function foodBlock($handle){
+    
+    $num = (int)fgets($handle);
+    
+    $content = fgets($handle);
+    echo"<button class=\"accordion\">" . $content . "</button>";
+    
+    echo"<div class = \"panel\">";
+    for($i = 0; $i < $num; $i++)
+        {
+            $content = fgets($handle);
+            echo"<p>" . $content . "</p>";
+        } 
+    echo"</div>";
 }
 
 ?>
