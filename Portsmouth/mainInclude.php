@@ -183,8 +183,10 @@ function DisplayEvents()
                 $maxDay->sub($interval);
             }
             
+            $month = $maxDay->format('m');
+            $year = $maxDay->format('y');
             // Display month 
-            echo"<div class = \"monthHeader\"> <h1>" .  $backtrack->format('M') . "</h1> </div>";
+            echo"<div class = \"monthHeader\"> <h1>" .  fullMonth($backtrack) . "</h1> </div>";
             
             // Next button
             echo"
@@ -216,7 +218,21 @@ function DisplayEvents()
                 $counter2 = 0;
                 while($counter2 < 7 && $maxDay->format('m - d') != $backtrack->format('m - d'))
                 {
-                    echo"<td>" . $currentDay . "</td>"; 
+                    echo"<td>" . $currentDay;
+                    $events = loadEvents($month,$year);
+                    //If there are events for this month, then is there an event for current Day
+                    if(!empty($events))
+                    {
+                        for($i = 0; $i < sizeof($events); $i++)
+                        {
+                            if($events[$i]->getDay() == $currentDay)
+                            {
+                                echo "<p>" . $events[$i]->getDesc() . "</p>";
+                            }
+                        }
+                    }
+                    //
+                    echo "</td>"; 
                     $counter += 1;
                     $counter2 +=1;
                     $backtrack->add($oneDay);
@@ -224,8 +240,11 @@ function DisplayEvents()
                 }
                 echo"</tr>";
             }
-            $month_add = 10;
         echo "</table></form>";
+        
+        $testEvent = new clsEvent($backtrack, "some desc idk");
+          // Month Year Day Time Desc
+        echo"<h1>" . $testEvent->getMonth() . $testEvent->getYear() . $testEvent->getDay() .  $testEvent->getTime() . $testEvent->getDesc() . "</h1>";
 }
 
 function DisplayContactUs()
@@ -260,6 +279,87 @@ function foodBlock($handle){
             echo"<p>" . $content . "</p>";
         } 
     echo"</div>";
+}
+
+function fullMonth($date)
+{
+    $month = "";
+    switch($date->format('M'))
+    {
+        case "Jan":
+            $month = "January";
+            break;
+        case "Feb":
+            $month = "February";
+            break;
+        case "Mar":
+            $month = "March";
+            break;
+        case "Apr":
+            $month = "April";
+            break;
+        case "May":
+            $month = "May";
+            break;
+        case "Jun":
+            $month = "June";
+            break;
+        case "Jul":
+            $month = "July";
+            break;
+        case "Aug":
+            $month = "August";
+            break;
+        case "Sep":
+            $month = "September";
+            break;
+        case "Oct":
+            $month = "October";
+            break;
+        case "Nov":
+            $month = "November";
+            break;
+        case "Dec":
+            $month = "December";
+            break;
+    }
+    return $month;
+}
+
+function loadEvents($searchedMonth, $searchedYear)
+{
+    $format = ("mydhi");
+    $eventIndex = 0;
+    $handle = fopen("eventInfo.txt", "r");
+    
+    while(!feof($handle))
+    {
+        $content = fgets($handle);
+        $month = substr($content,0,2);
+        $year = substr($content,2,2);
+        if($month == $searchedMonth && $year == $searchedYear)
+        {
+            $day = substr ($content,4,2);
+            $hours = substr($content,6,2);
+            $minutes = substr($content,8,2);
+            $desc = substr($content, 10 );
+            $date = date_create_from_format($format,($month . $year . $day . $hours . $minutes));
+            $eventArray[$eventIndex] = new clsEvent($date, $desc);
+        }
+    }
+    if(isset($eventArray))
+    {
+        return $eventArray;
+    }
+    else 
+    {
+        return NULL;
+    }
+}
+
+function saveEvent($event)
+{
+    
 }
 
 ?>
