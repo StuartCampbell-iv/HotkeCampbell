@@ -1,22 +1,28 @@
 <?php
 
 function Login()
-{
-    $File = fopen("loginInfo.txt", "r");
-    $CorrectPassword = fgets($File);
+{ 
     
-    
-   echo"<form action=? method=\"post\">"; 
+   echo <<<HTML
+        <form action=? method=\"post\"> 
    
-   DisplayTextBox("test", "", "", "f_Password", "", "Enter Password", "required");
+        <input type="text" name="f_Password" value="Enter Password"/>
   
+HTML;
    
-    $Password = isset($_POST['f_Password']);
+   $Password = isset($_POST['f_Password']);
    
-   if($Password == $CorrectPassword)
-   {
-        DisplayButton("f_Login","","Login");
-   }
+   // See the password_hash() example to see where this came from.
+    $hash = 'password';
+
+    if (password_verify($Password, $hash))
+    {
+        echo "Correct Password";
+    }
+    
+    echo <<<HTML
+           <input typr="submit" name="f_Login" value="Login"/> 
+HTML;
 }
 
 function LoginMain()
@@ -98,6 +104,20 @@ HTML;
      echo"<input type=\"$Text\" name=\"$Name\" size=\"$Size\" value=\"$Value\" id=\"$Id\"
             placeholder=\"$PlaceHolder\" $Required/>";
  }
+ 
+ function CheckLogin()
+{
+    session_start();
+    
+    $sessionvar = $this->GetLoginSessionVar();
+
+    if(empty($_SESSION[$sessionvar]))
+    {
+        return false;
+    }
+    
+    return true;
+}
 
 ?>
 
